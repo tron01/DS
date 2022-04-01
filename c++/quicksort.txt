@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+
+class quick_s{
+	int a[10],i,n,j,temp;
+	public:
+		void get();
+		void sort(int a[],int,int);
+		int partition(int a[],int,int);
+		void put();
+	};
+
+void quick_s::get(){
+	cout<<"\nEnter th limit: ";
+	cin>>n;
+	cout<<"\nEnter the elements: ";
+	for(i=0;i<n;i++){
+		cin>>a[i];
+	}
+	sort(a,0,n-1);
+}
+
+void quick_s::sort(int a[],int l,int h){
+	int p;
+	if(l>=h)
+	return;
+	p=partition(a,l,h); 
+	sort(a,l,p-1);
+	sort(a,p+1,h);
+}
+
+int quick_s::partition(int a[],int l,int h){
+   
+   int temp,i,j,pivot;
+   pivot=a[l];
+   i=l+1;
+   j=h;
+
+while(i<=j){
+    
+	while(a[i]<pivot&&i<j)
+   	i++;
+   	while(a[j]>pivot)
+   	j--;
+   	if(i<j){
+   		temp=a[i];
+   		a[i]=a[j];
+   		a[j]=temp;
+   		i++;
+   		j--;
+   	}else 
+	   break;
+}
+a[l]=a[j];
+a[j]=pivot;
+return j;
+   
+ 
+}
+void quick_s::put(){
+cout<<"\nSorted arry";
+	  	for(i=0;i<n;i++){
+	  		cout<<a[i]<<" ";
+		  }
+}
+int main(){
+	quick_s q;
+	q.get();
+	q.put();
+}
