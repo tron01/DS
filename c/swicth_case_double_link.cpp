@@ -20,8 +20,8 @@ int main ()
 int choice =0;  
     while(choice != 9)  
     {    
-        printf("\n===============================================\n");  
-        printf("\n1.Insert in begining\n2.Insert at last\n3.Insert at any random location\n4.Delete from Beginning\n5.Delete from last\n6.Delete the node after the given data\n7.Search\n8.Show\n9.Exit\n");  
+         
+printf("\n1.InsertFirst\n2.Insert last\n3.InsertiBtew\n4.DeleteFirst\n5.Deletelast\n6.DeleteInBte");     printf("\n7.search\n8.display\n9.exit");
         printf("\nEnter your choice?\n");  
         scanf("\n%d",&choice);  
         switch(choice)  
@@ -70,9 +70,9 @@ void insertion_beginning()
    }  
    else  
    {  
-    printf("\nEnter Item value");  
+    printf("\nEnter Item value:");  
     scanf("%d",&item);  
-      
+
    if(head==NULL)  
    {  
        ptr->next = NULL;  
@@ -90,7 +90,7 @@ void insertion_beginning()
    }  
    printf("\nNode inserted\n");  
 }  
-     
+
 }  
 void insertion_last()  
 {  
@@ -103,7 +103,7 @@ void insertion_last()
    }  
    else  
    {  
-       printf("\nEnter value");  
+       printf("\nEnter value:");  
        scanf("%d",&item);  
         ptr->data=item;  
        if(head == NULL)  
@@ -123,7 +123,7 @@ void insertion_last()
           ptr ->prev=temp;  
           ptr->next = NULL;  
           }  
-             
+
        }  
      printf("\nnode inserted\n");  
     }  
@@ -139,7 +139,7 @@ void insertion_specified()
    else  
    {  
        temp=head;  
-       printf("Enter the location");  
+       printf("Enter the location:");  
        scanf("%d",&loc);  
        for(i=0;i<loc;i++)  
        {  
@@ -181,7 +181,7 @@ void deletion_beginning()
         free(ptr);  
         printf("\nnode deleted\n");  
     }  
-  
+
 }  
 void deletion_last()  
 {  
@@ -212,7 +212,7 @@ void deletion_specified()
 {  
     struct node *ptr, *temp;  
     int val;  
-    printf("\n Enter the data after which the node is to be deleted : ");  
+    printf("\n Enter postion : ");  
     scanf("%d", &val);  
     ptr = head;  
     while(ptr -> data != val)  
@@ -278,5 +278,5 @@ void search()
             printf("\nItem not found\n");  
         }  
     }     
-          
-}  
+
+}
