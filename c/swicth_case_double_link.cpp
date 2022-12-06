@@ -210,29 +210,36 @@ void deletion_last()
 }  
 void deletion_specified()  
 {  
-    struct node *ptr, *temp;  
-    int val;  
-    printf("\n Enter postion : ");  
-    scanf("%d", &val);  
-    ptr = head;  
-    while(ptr -> data != val)  
-    ptr = ptr -> next;  
-    if(ptr -> next == NULL)  
-    {  
-        printf("\nCan't delete\n");  
-    }  
-    else if(ptr -> next -> next == NULL)  
-    {  
-        ptr ->next = NULL;  
-    }  
-    else  
-    {   
-        temp = ptr -> next;  
-        ptr -> next = temp -> next;  
-        temp -> next -> prev = ptr;  
-        free(temp);  
-        printf("\nnode deleted\n");  
-    }     
+    struct node *ptr,*temp;  
+   int item,loc,i;  
+   ptr = (struct node *)malloc(sizeof(struct node));  
+   if(ptr == NULL)  
+   {  
+       printf("\n OVERFLOW");  
+   }  
+   else  
+   {  
+       temp=head;  
+       printf("Enter the location:");  
+       scanf("%d",&loc);  
+       for(i=0;i<loc;i++)  
+       {  
+           temp = temp->next;  
+           if(temp == NULL)  
+           {  
+               printf("\n There are less than %d elements", loc);  
+               return;  
+           }  
+       }  
+       printf("Enter value:");  
+       scanf("%d",&item);  
+       ptr->data = item;  
+       ptr->next=temp;
+       ptr->prev=temp->prev;
+       temp->prev->next=ptr;
+       temp->prev=ptr;  
+       printf("\nnode inserted\n");  
+   }  
 }  
 void display()  
 {  
