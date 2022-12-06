@@ -129,7 +129,7 @@ void insertion_last()
     }  
 void insertion_specified()  
 {  
-   struct node *ptr,*temp;  
+ struct node *ptr,*temp;  
    int item,loc,i;  
    ptr = (struct node *)malloc(sizeof(struct node));  
    if(ptr == NULL)  
@@ -150,15 +150,15 @@ void insertion_specified()
                return;  
            }  
        }  
-       printf("Enter value");  
+       printf("Enter value:");  
        scanf("%d",&item);  
        ptr->data = item;  
-       ptr->next = temp->next;  
-       ptr -> prev = temp;  
-       temp->next = ptr;  
-       temp->next->prev=ptr;  
+       ptr->next=temp;
+       ptr->prev=temp->prev;
+       temp->prev->next=ptr;
+       temp->prev=ptr;  
        printf("\nnode inserted\n");  
-   }  
+   }    
 }  
 void deletion_beginning()  
 {  
