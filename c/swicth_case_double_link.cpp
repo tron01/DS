@@ -26,32 +26,23 @@ printf("\n1.InsertFirst\n2.Insert last\n3.InsertiBtew\n4.DeleteFirst\n5.Deletela
         scanf("\n%d",&choice);  
         switch(choice)  
         {  
-            case 1:  
-            insertion_beginning();  
+            case 1:insertion_beginning();  
             break;  
-            case 2:  
-                    insertion_last();  
+            case 2:insertion_last();  
             break;  
-            case 3:  
-            insertion_specified();  
+            case 3:insertion_specified();  
             break;  
-            case 4:  
-            deletion_beginning();  
+            case 4:deletion_beginning();  
             break;  
-            case 5:  
-            deletion_last();  
+            case 5:deletion_last();  
             break;  
-            case 6:  
-            deletion_specified();  
+            case 6:deletion_specified();  
             break;  
-            case 7:  
-            search();  
+            case 7:search();  
             break;  
-            case 8:  
-            display();  
+            case 8:display();  
             break;  
-            case 9:  
-            exit(0);  
+            case 9:exit(0);  
             break;  
             default:  
             printf("Please enter valid choice..");  
@@ -186,23 +177,27 @@ void deletion_beginning()
 void deletion_last()  
 {  
     struct node *ptr;  
-    if(head == NULL)  
+     ptr = head; 
+    if(ptr == NULL)  
     {  
         printf("\n UNDERFLOW");  
     }  
-    else if(head->next == NULL)  
+    else if(ptr->next == NULL)  
     {  
         head = NULL;   
-        free(head);   
+        free(ptr);   
         printf("\nnode deleted\n");  
     }  
     else   
     {  
-        ptr = head;   
-        if(ptr->next != NULL)  
-        {  
-            ptr = ptr -> next;   
-        }  
+     
+      while(ptr->next !=NULL){
+      	ptr=ptr->next;
+	  }
+	  
+         
+              
+      
         ptr -> prev -> next = NULL;   
         free(ptr);  
         printf("\nnode deleted\n");  
@@ -241,14 +236,18 @@ void deletion_specified()
 }  
 void display()  
 {  
-    struct node *ptr;  
+    if(head==NULL){
+    	printf("\n  Empty  \n"); 
+	} else{
+	struct node *ptr;  
     printf("\n printing values...\n");  
     ptr = head;  
     while(ptr != NULL)  
     {  
         printf("%d\n",ptr->data);  
         ptr=ptr->next;  
-    }  
+    } 
+	}
 }   
 void search()  
 {  
