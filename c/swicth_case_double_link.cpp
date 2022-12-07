@@ -205,33 +205,35 @@ void deletion_last()
 }  
 void deletion_specified()  
 {  
-     struct node *ptr, *temp;  
-    int pos;  
+     struct node *ptr, *temp,*ptr2;  
+    int key,i;  
    if(head==NULL){
-      printf("\n UNDERFLOW");   
+     printf("\n UNDERFLOW");   
   }else{
-     
-   temp = head; 
-   if(temp -> next == NULL){  
-          head=NULL;
-          free(temp);
-          printf("\nnode deleted\n"); 
-         }else if( temp -> next -> next == NULL) { 
-           printf("can't be deleted");           
-        }else{
-          printf("\n Enter postion : ");  
-          scanf("%d", &pos); 
-          for(int i=0;i<pos;i++){  
-               ptr = temp;
-               temp = temp -> next;
-
-             } 
-         
-        ptr -> next = temp -> next;  
-        temp -> next -> prev = ptr;  
-        free(temp);  
-        printf("\nnode deleted\n");  
-        }     
+    
+       temp = head;
+       printf("Enter the key node");
+       scanf("%d",&key);
+       
+       while(temp->next!=NULL){
+       	 if(temp->data==key){
+       	    break;
+	     }else{
+	   	 temp=temp->next;
+	      }
+	          
+	   }
+	        if(temp->next!=NULL){
+	           
+	           	temp->prev->next =temp->next->prev;
+	            temp->next->prev =temp->prev->next;
+	           	
+	           	free(temp);
+			   }
+	        
+			   ptr=temp->prev;
+			   ptr->next=NULL;
+			   free(temp);
   } 
 }  
 void display()  
