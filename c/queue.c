@@ -77,7 +77,7 @@ void display() {
 	} else {
 		ptr = head;
 		while(ptr->next != head){
-			printf("<-|%p|%d|%p|->",ptr->prev,ptr->data,ptr->next);
+			printf("%d ",ptr->data);
 			ptr = ptr->next;
 		}
 		printf("\n");
