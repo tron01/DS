@@ -124,10 +124,10 @@ insert_after_key ()
 		}
 	else
 	{
-	new->next = ptr->next;
-      new->prev = ptr;
-      ptr->next = new;
-      ptr->next->prev = new;
+	ptr->next->prev=new;
+        new->next=ptr->next;
+        new->prev=ptr;
+        ptr->next=new;
 	}
 }
 void
