@@ -24,8 +24,7 @@ int main ()
   int opt;
   do
     {
-      printf ("\nEnter the choice: \n");
-      printf("1.Insertion Beginning \n2.Inserting after key \n3.Insertion last \n4.Delete beginning \n5.Delete In between \n6.Delete last \n7.Display \n0.Exit : ");
+printf ("\nEnter the choice: \n");printf("1.InsertionBeginning\n2.Insertingafterkey\n3.Insertion last\n4.Delete beginning \n5.Delete  \n6.Delete last \n7.Display \n0.Exit : ");
       scanf ("%d", &opt);
       switch (opt)
 	{
