@@ -24,7 +24,7 @@ int main ()
   int opt;
   do
     {
-printf ("\nEnter the choice: \n");printf("1.InsertionBeginning\n2.Insertingafterkey\n3.Insertion last\n4.Delete beginning \n5.Delete  \n6.Delete last \n7.Display \n0.Exit : ");
+printf ("\nEnter the choice: \n");printf("1.InsertionBeginning\n2.Insertingafterkey\n3.Insertion last\n4.Delete beginning \n5.Delete By key  \n6.Delete last \n7.Display \n0.Exit : ");
       scanf ("%d", &opt);
       switch (opt)
 	{
@@ -102,6 +102,7 @@ insert_beginning ()
       new->next = head;
       head = new;
     }
+    display ();
 }
 
 void
@@ -128,6 +129,7 @@ insert_after_key ()
         new->prev=ptr;
         ptr->next=new;
 	}
+  display ();
 }
 void
 delete_beginning ()
@@ -149,6 +151,7 @@ delete_beginning ()
       head->prev = NULL;
       free (ptr);
       printf ("NODE DELETED");
+      display ();
     }
 }
 
@@ -175,6 +178,7 @@ delete_last ()
       ptr->prev->next = NULL;
       free (ptr);
       printf ("\nnode deleted\n");
+      display ();
     }
 }
 
@@ -216,6 +220,7 @@ delete_between ()
 	    ptr->next = NULL;
 	    free(ptr);
 	printf("node deleted");
+  display ();
     }}
 }
 
