@@ -13,64 +13,62 @@ struct node
 void InOrder( struct node *r);
 void PostOrder( struct node *r);
 void PreOrder( struct node *r);
-struct node * deleteT(struct node *root,int key);
-void insert();
-
-struct node * deleteT(struct node *root,int k){
-struct node *temp,*succ,*succParent;
-if(root == NULL){
+struct node* deleteNode(struct node *node, int value);
+struct node* minNode(struct node *root);
 
 
 
-}else{
- if(root->data > k ){
-  
-  root->left = deleteT(root->left, k);
-   return root;
- }else  if (root->data < k) {   
-       root->right = deleteT(root->right, k);
-       return root;
-  }
-    // If one of the children is empty
-    if (root->left == NULL) {
-         temp = root->right;
-        free(root);
-        return temp;
+// To find the minimum value
+struct node* minNode(struct node *root) {
+    if (root->left != NULL)
+        return minNode(root->left);
+    else
+        return root;
+}
+
+// Delete a node form tree
+struct node* deleteNode(struct node *node, int value) {
+    if(node == NULL) {
+        return NULL;
     }
-    else if (root->right == NULL) {
-         temp = root->left;
-        free(root);
-        return temp;
-    }
- 
-    // If both children exist
     else {
 
-   succParent = root;
- 
-        // Find successor
-         succ = root->right;
-        while (succ->left != NULL) {
-            succParent = succ;
-            succ = succ->left;
+        if(value < node->data)
+            node->left = deleteNode(node->left, value);
+
+        else if(value > node->data)
+            node->right = deleteNode(node->right, value);
+
+        // If value is equal to node's data node to be deleted is found
+        else {
+            // Deletion node has no childern
+            if(node->left == NULL && node->right == NULL)
+                node = NULL;
+
+            // Deletion node has on right child
+            else if(node->left == NULL) {
+                node = node->right;
+            }
+
+            // Deletion node has one right child
+            else if(node->right == NULL) {
+                node = node->left;
+            }
+
+            // Deletion node has two childern
+            else {
+                // Minmum value from right sub-tree
+                struct node *temp = minNode(node->right);
+                // Exchange the data between node and temp
+                node->data = temp->data;
+                // Delete the node duplicate node from right subtree
+                node->right = deleteNode(node->right, temp->data);
+            }
         }
-if (succParent != root)
-            succParent->left = succ->right;
-        else
-            succParent->right = succ->right;
- 
-        // Copy Successor Data to root
-        root->data = succ->data;
- 
-        // Delete Successor and return root
-        free(succ);
-       return root;
-  }
- 
-
+        return node;
+    }
 }
 
-}
 void insert(){
 int x;
 struct node *newnode,*ptr,*ptr1;
@@ -161,7 +159,7 @@ case 4:PostOrder(root);
    break;
 case 5:printf("Enter the key to delete:");
        scanf("%d",&key);
-       deleteT(root,key);
+       deleteNode(root,key);
        break;
 case 6:exit(0);
    break;
@@ -169,5 +167,4 @@ case 6:exit(0);
   }
 
 }
-
 
