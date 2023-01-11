@@ -111,3 +111,136 @@ case 5:exit(0);
 }
 
 
+
+/*
+Algorithm search
+ROOT is a pointer to the root node of the tree.
+X is the element to be searched in the binary search tree.
+1. ptr=ROOT
+2. while(ptr!=NULL)
+ if (ptr->data==x)
+ print(“Data Present")
+ goto step3
+ end if
+if (x>ptr->data)
+ ptr=ptr->right
+else
+ptr=ptr->left
+end if
+end while
+3. if (ptr==NULL)
+print("data not present")
+end if
+4. stop
+*/
+/*
+Algorithm insert
+ROOT is a pointer to the root node of the tree.
+X is the element to be inserted in to the tree.
+1. ne=GetNode()
+2. if (ne==NULL)
+printf("\n insufficient Memory");
+goto step8
+endif
+3. ne->right=ne->left=NULL;
+ ne->data=x;
+4. if (ROOT==NULL)
+ROOT=ne;
+Goto step8
+End if
+5. ptr=ROOT;
+6. while(ptr!=NULL)
+if (x==ptr->data)
+print("Item present in the tree");
+goto step7
+end if
+if (x>ptr->data)
+ptr1=ptr;
+ptr=ptr->right;
+ else
+ptr1=ptr;
+ ptr=ptr->left;
+End if
+End while
+7. if (ptr==NULL)
+if (x>ptr1->data )
+ptr1->right=ne;
+else
+ptr1->left=ne;
+end if
+end if
+8. Stop
+*/
+
+/*
+Algorithm delet(x)
+ROOT is a pointer to the root node of the tree.
+X is the element to deleted from the tree.
+1. if (ROOT==NULL)
+ printf("\nTree is empty");
+return;
+ end if
+2. parent=NULL ;
+ ptr=ROOT;
+3. while(ptr!=NULL)
+ if (ptr->data==x)
+break;
+end if
+parent=ptr;
+ if (x > ptr->data)
+ptr=ptr->right;
+else
+ptr=ptr->left;
+end if
+end while
+4. if (ptr==NULL)
+ printf("Item Not Present");
+goto step8
+ end if
+5. if (ptr->right==NULL && ptr->left==NULL) //case1 if (parent==NULL)
+ROOT=NULL;
+   else if (parent->right==ptr)
+        parent->right=NULL;
+        else
+        parent->left=NULL;
+   end if
+print("Element deleted");
+ free(ptr);
+goto step8
+ end if
+6. if(ptr->right!=NULL && ptr->left!=NULL) //case 3 //find the inorder successor p
+p=ptr->right;
+while(p->left!=NULL)
+p=p->left;
+end while
+dat=p->data;
+delet(p->data); //recursive call
+ptr->data=dat;
+goto step8
+ end if
+7. //case2
+ if (parent==NULL)
+if (ptr->right==NULL)
+ ROOT=ptr->left;
+ else
+ROOT=ptr->right;
+End if
+ else
+if (parent->right==ptr)
+if (ptr->right==NULL)
+ parent->right=ptr->left;
+else
+ parent->right=ptr->right;
+end if
+ else
+if (ptr->left==NULL)
+parent->left= ptr->right;
+else
+parent->left=ptr->left;
+end if
+
+ print("Element deleted");
+ free(ptr);
+8.stop
+*/
+/**/
