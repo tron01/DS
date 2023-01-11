@@ -133,6 +133,7 @@ print("data not present")
 end if
 4. stop
 */
+
 /*
 Algorithm insert
 ROOT is a pointer to the root node of the tree.
@@ -243,4 +244,27 @@ end if
  free(ptr);
 8.stop
 */
-/**/
+
+/*
+Algorithm InOrder(ptr)
+ ptr is the pointer to the root node of the binary tree1. If (ptr!=NULL)
+InOrder(ptr->LC)
+Visit(ptr->data)
+InOrder(ptr->RC)
+ Endif
+2. Stop
+Algorithm PreOrder(ptr)
+ptr is the pointer to the root node of the binary tree1. If (ptr!=NULL)
+Visit(ptr->data)
+PreOrder(ptr->LC)
+PreOrder(ptr->RC)
+ endif
+2. stop
+Algorithm PostOrder(ptr)
+ptr is the pointer to the root node of the binary tree1. If (ptr!=NULL)
+PostOrder(ptr->LC)
+PostOrder(ptr->RC)
+Visit(ptr->data)
+ endif
+2. Stop
+*/
