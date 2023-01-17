@@ -22,7 +22,7 @@ void main(){
 	int ch=0,key;
 	do{
 		printf("\n1.Insertion\n2.Inorder Traversal\n3.Preorder Traversal\n4.Postorder Traversal");
-		printf("\n5.Search\n6.Delete an element\n7..Exit");
+		printf("\n5.Search\n6.Delete an element\n7.Exit");
 		printf("\n Enter your choice=");
 		scanf("%d",&ch);
 		switch(ch){
@@ -44,15 +44,15 @@ void main(){
 			       break;
 			case 5: printf("\n Enter the key to be searched=");
 				scanf("%d",&key);
-                                printf("\n------------\n"); 
+                                printf("\n-----------------------"); 
 				search(key);
-                                printf("\n------------"); 
+                                printf("\n-----------------------"); 
 				break;
 			case 6: printf("\n Enter the key to be deleted=");
 				scanf("%d",&key);
-                                printf("\n------------\n"); 
+                                printf("\n------------------------"); 
 				delete(key);
-                                printf("\n------------"); 
+                                printf("\n------------------------"); 
 				break;
 			case 7: exit;
 				printf("\n \n");
@@ -185,7 +185,8 @@ void delete(int key){
 			}
 		}
 		if(ptr==NULL){
-			printf("%d is not  in the tree",key);
+			printf(" \n %d is not  in the tree",key);
+
 		}
 		else
 		{
@@ -231,8 +232,9 @@ void delete(int key){
 						free(ptr);
 					}
 				}
+                     printf("\n element deleted");
 		}
-		printf("\n element deleted");
+		
 	}
 
 }
