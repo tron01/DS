@@ -30,19 +30,29 @@ void main(){
 				scanf("%d",&key);
 				insert(key);
 				break;
-			case 2: inorder(root);
+			case 2:printf("\n------------\n"); 
+                               inorder(root);
+                               printf("\n------------"); 
 				break;
-			case 3: preorder(root);
-				break;
-			case 4: postorder(root);
-				break;
+			case 3:printf("\n------------\n"); 
+                               preorder(root);
+			       printf("\n------------");
+                               break;
+			case 4:printf("\n------------\n"); 
+                               postorder(root);
+                               printf("\n------------");
+			       break;
 			case 5: printf("\n Enter the key to be searched=");
 				scanf("%d",&key);
+                                printf("\n------------\n"); 
 				search(key);
+                                printf("\n------------"); 
 				break;
 			case 6: printf("\n Enter the key to be deleted=");
 				scanf("%d",&key);
+                                printf("\n------------\n"); 
 				delete(key);
+                                printf("\n------------"); 
 				break;
 			case 7: exit;
 				printf("\n \n");
@@ -198,17 +208,14 @@ void delete(int key){
 					int dat=p->data;
 					delete(dat); 
 					ptr->data=dat;	
-				}
-				
-				else{
+				}else{
 					if(parent==NULL)
 					{
 						if(ptr->right==NULL)
 							root=ptr->left;
 						else
 							root=ptr->right;					
-					}struct node* min_val_node(struct node*);
-					else{
+					}else{
 						if(parent->right==ptr){
 							if(ptr->right==NULL)
 								parent->right=ptr->left;
