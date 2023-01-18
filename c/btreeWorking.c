@@ -16,7 +16,7 @@ void preorder(struct node*);
 void postorder(struct node*);
 void search(int);
 void delete(int);
-struct node* min_val_node(struct node*);
+//struct node* min_val_node(struct node*);
 
 void main(){
 	int ch=0,key;
