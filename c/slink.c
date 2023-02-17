@@ -115,7 +115,7 @@ void display()
   else
   {
 
-    printf("%d", head->data);
+   
     ptr = head;
     while (ptr != NULL)
     {
