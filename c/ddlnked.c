@@ -15,16 +15,17 @@ void delete_last ();
 void insert_beginning ();
 void delete_beginning ();
 void display ();
-void insert_after_key ();
+void insert_after_key ();																																																									
 void delete_between ();
 void create_node ();
 
-int main ()
+void main ()
 {
   int opt;
   do
     {
-printf ("\nEnter the choice: \n");printf("1.InsertionBeginning\n2.Insertingafterkey\n3.Insertion last\n4.Delete beginning \n5.Delete By key  \n6.Delete last \n7.Display \n0.Exit : ");
+printf ("\nEnter the choice: \n");
+printf("1.InsertionBeginning\n2.Insertingafterkey\n3.Insertion last\n4.Delete beginning \n5.Delete By key  \n6.Delete last \n7.Display \n0.Exit : ");
       scanf ("%d", &opt);
       switch (opt)
 	{
@@ -49,13 +50,12 @@ printf ("\nEnter the choice: \n");printf("1.InsertionBeginning\n2.Insertingafter
 	case 7:
 	  display ();
 	  break;
-	case 0:
 	default:
 	  break;
 	}
     }
   while (opt != 0);
-  return 0;
+  
 }
 
 void
