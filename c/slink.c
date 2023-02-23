@@ -49,12 +49,21 @@ void delitem()
   int key;
   printf("Enter the key to delete : ");
   scanf("%d", &key);
-  if (head == NULL)
+  if (head == NULL){
+    printf("\n----------------------\n");
     printf("Empty list");
-  else if (head->data == key)
-    head = head->next;
-  else
+    printf("\n----------------------\n");
+  }else if (head->data == key)
   {
+    //delete first
+    ptr=head; 
+	head = head->next;
+	printf("\n----------------------\n");
+	printf("\nNODE DELETED :%d",ptr->data);
+	printf("\n----------------------\n");
+    free(ptr);
+  }else
+   {
     ptr = head;
     while (ptr->data != key && ptr->next != NULL)
     {
@@ -63,19 +72,29 @@ void delitem()
     }
     if (ptr->data != key)
     {
-      printf("No data found");
+    	printf("\n----------------------\n");
+      printf("\nNo data found");
+      printf("\n----------------------\n");
     }
     else if (ptr->next == NULL)
     {
+      //delete last
       prev->next = NULL;
+      printf("\n----------------------\n");
+      printf("\nNODE DELETED :%d",ptr->data); 
+      printf("\n----------------------\n");
       free(ptr);
-      printf("NODE DELETED");
+      
     }
     else
     {
+      //delete between
       prev->next = ptr->next;
+      printf("\n----------------------\n");
+      printf("\nNODE DELETED :%d",ptr->data);
+	  printf("\n----------------------\n");  
       free(ptr);
-      printf("NODE DELETED");
+      
     }
   }
 }
@@ -111,18 +130,19 @@ void display()
 {
   struct node *ptr;
   if (head == NULL)
-    printf("list is Empty");
+    printf("\nlist is Empty");
   else
   {
 
-   
+   printf("\n----------------------\n");
     ptr = head;
     while (ptr != NULL)
     {
-      printf("%d->", ptr->data);
+      printf("%d ", ptr->data);
       ptr = ptr->next;
     }
-    printf("null");
+    printf("\n----------------------\n");
+
   }
 }
 
@@ -131,7 +151,7 @@ void main()
   int opt;
   do
   {
-    printf("\nEnter your choice:\n1. Insert at beginning\n2.Insert at end \n3.delete at position \n4.search \n5.display");
+    printf("\n1. Insert at beginning\n2.Insert at end \n3.delete at position \n4.search \n5.display \nEnter your choice:");
     scanf("%d", &opt);
     switch (opt)
     {
