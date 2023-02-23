@@ -170,6 +170,8 @@ void delete() {
 }
 
 void display() {
+	int c=0;
+	
 	if(head == NULL) {
 		printf("Empty List \n");
 	} else {
@@ -177,9 +179,12 @@ void display() {
 		ptr = head;
 		while(ptr!=NULL){
 			printf("%d ",ptr->data);
+			c++;
 			ptr = ptr->next;
+			
 		}
 		printf("\n----------------------\n");
+		printf("Number nodes: %d\n ",c);
 	}
 }
 void r_display(){
