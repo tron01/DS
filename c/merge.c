@@ -1,8 +1,8 @@
 //program to merge 2 sorted array
 #include<stdio.h>
 
-int main(){
-int i=0,j=0,k=0,n1,n2,a[10],b[10],c[30];
+void main(){
+int i=0,j=0,k=0,p,n1,n2,a[10],b[10],c[30];
 printf("Enter size of 1st array: ");
 scanf("%d",&n1);
 printf("\nEnter array Elements: ");
@@ -39,9 +39,10 @@ while(j<n2){
 	c[k]=b[j];
 	j++;k++;
 }
+p=k;
 	printf("--Array sorted--\n");
-    for(i=0;i<k;i++){
-	printf("%d\n",c[i]);
+    for(k=0;k<p;k++){
+	printf("%d\n",c[k]);
 }
-	return 0;
+	
 }
