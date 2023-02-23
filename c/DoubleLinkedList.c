@@ -94,8 +94,8 @@ void insert_after_key() {
 	if(ptr->data == key){
 		new->next = ptr->next;
 		new->prev = ptr;
-		ptr->next = new;
 		ptr->next->prev = new;
+		ptr->next = new;
 	}
 	else {
 		printf("The key is not found");
