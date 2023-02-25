@@ -15,8 +15,10 @@ printf("\nEnter  array Elements: ");
 for( j;j<n1;j++){
 	scanf("%d",&b[j]);	
 }
+
 i=0;
 j=0;
+
 while(i<n1 && j<n2)	{
 	if(a[i]<b[j]){
 		c[k]=a[i]; 
